@@ -39,6 +39,7 @@ Solution (fun (A : Set) =>
 
 This term, in Fitch form:
 ```
+Let A be a set                      │  Declaration
  ┌──                                │ 
  │ Let x be an element              │  Declaration                  
  │ s1_1  elof x (diff A A)          │  Assumption
