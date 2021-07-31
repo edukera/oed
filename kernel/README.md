@@ -39,17 +39,21 @@ Solution (fun (A : Set) =>
 
 This term, in Fitch form:
 ```
- | Let x be an element                | Declaration
- | s1_1 elof x (diff A A)             | Assumption
- | s1_2 elof x A                      | by s1_1 by definition of diff
- | s1_3 not (elof x A)                | by s1_1 by definition of diff
- | s1_4 elof x void                   | by s1_2 s1_3 by non contradiction
-s1 subset (diff A A) void             | by scope s1_1 to s1_4
- | Let x be an element                | Declaration
- | s2_1 elof x void                   | Assumption
- | s2_2 elof x (diff A A)             | To be justified
-s2 subset void (diff A A)             | by scope s1_2 to s2_2
-s3 (diff A A) = void                  | by s1 s2 by definition of set equality
+ ┌──                                │ 
+ │ Let x be an element              │  Declaration                  
+ │ s1_1  elof x (diff A A)          │  Assumption
+ │ s1_2  elof x A                   │  by s1_1 by definition of diff
+ │ s1_3  not (elof x A)             │  by s1_1 by definition of diff
+ │ s1_4  elof x void                │  by s1_2 s1_3 by non contradiction
+ └──                                │
+s1  subset (diff A A) void          │  by scope s1_1 to s1_4
+ ┌──                                │ 
+ │ Let x be an element              │  Declaration                 
+ │ s2_1  elof x void                │  Assumption
+ │ s2_2 elof x (diff A A)           │  To be justified
+ └──                                │  
+s2  subset void (diff A A)          │  by scope s1_2 to s2_2
+s3  (diff A A) = void               │  by s1 s2 by definition of set equality
 ```
 
 ## Implementation
