@@ -42,19 +42,19 @@ This term, in Fitch form:
 Let A be a set                      │  Declaration
  ┌──                                │ 
  │ Let x be an element              │  Declaration                  
- │ s1_1  elof x (diff A A)          │  Assumption
- │ s1_2  elof x A                   │  by s1_1 by definition of diff
- │ s1_3  not (elof x A)             │  by s1_1 by definition of diff
- │ s1_4  elof x void                │  by s1_2 s1_3 by non contradiction
+ │ s1_1  x ∈ (A \ A)                │  Assumption
+ │ s1_2  x ∈ A                      │  by s1_1 by definition of diff
+ │ s1_3  x ∉ A                      │  by s1_1 by definition of diff
+ │ s1_4  x ∈ ∅                      │  by s1_2 s1_3 by non contradiction
  └──                                │
-s1  subset (diff A A) void          │  by scope s1_1 to s1_4
+s1  (A \ A) ⊂ ∅                     │  by scope s1_1 to s1_4
  ┌──                                │ 
  │ Let x be an element              │  Declaration                 
- │ s2_1  elof x void                │  Assumption
- │ s2_2 elof x (diff A A)           │  To be justified
+ │ s2_1  x ∈ ∅                      │  Assumption
+ │ s2_2  x ∈ (A \ A)                │  To be justified
  └──                                │  
-s2  subset void (diff A A)          │  by scope s1_2 to s2_2
-s3  (diff A A) = void               │  by s1 s2 by definition of set equality
+s2  ∅ ⊂ (A \ A)                     │  by scope s1_2 to s2_2
+s3  (A \ A) = ∅                     │  by s1 s2 by definition of set equality
 ```
 
 ## Implementation
